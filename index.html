@@ -5,8 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Test: La Nube y el Borde</title>
     <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background-color: #f0f2f5; color: #333; margin: 0; padding: 20px; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
-        #quiz-container, #review-container { width: 100%; max-width: 700px; margin: 0 auto; }
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
+            background-color: #f0f2f5; 
+            color: #333; 
+            margin: 0; 
+            padding: 20px; 
+            display: flex; 
+            flex-direction: column; /* Cambiado para permitir el footer */
+            justify-content: center; 
+            align-items: center; 
+            min-height: 100vh; 
+        }
+        #quiz-container, #review-container { 
+            width: 100%; 
+            max-width: 700px; 
+            margin: 0 auto; 
+        }
         h1 { color: #0d47a1; text-align: center; margin-bottom: 20px; }
         #question-card { background-color: #ffffff; border-radius: 15px; box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1); padding: 30px 35px; min-height: 300px; display: flex; flex-direction: column; transition: opacity 0.4s ease-in-out; }
         #question-card.fade-out { opacity: 0; }
@@ -33,6 +48,24 @@
         #results-container { text-align: center; padding: 25px; margin-bottom: 25px; font-size: 1.6em; font-weight: bold; border-radius: 15px; }
         #results-container.pass { background-color: #d1e7dd; color: #0f5132; }
         #results-container.fail { background-color: #f8d7da; color: #842029; }
+        
+        /* --- CSS NUEVO PARA EL FOOTER --- */
+        footer {
+            width: 100%;
+            margin-top: 40px; /* Espacio entre el test y el footer */
+            padding-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.9em;
+            color: #777;
+        }
+        footer img {
+            width: 25px; /* Tamaño del logo */
+            margin-right: 10px; /* Espacio entre logo y texto */
+        }
+        /* --- FIN DEL CSS NUEVO --- */
+
     </style>
 </head>
 <body>
@@ -99,7 +132,7 @@
             { "questionNumber": 39, "question": "La arquitectura 'Edge-Fog-Cloud' está diseñada para...", "answerOptions": [ { "text": "Que cada capa compita para ver cuál es más rápida.", "rationale": "No compiten, sino que colaboran. Cada una tiene una función específica y necesaria.", "isCorrect": false }, { "text": "Distribuir la inteligencia, poniendo el procesamiento donde es más eficiente.", "rationale": "Correcto. Las decisiones rápidas en el borde, la coordinación local en la niebla, y el análisis pesado en la nube.", "isCorrect": true }, { "text": "Eliminar la necesidad de la Nube a largo plazo.", "rationale": "Al contrario, el Edge y el Fog no tendrían sentido sin una Nube a la que reportar datos y de la que recibir inteligencia.", "isCorrect": false } ] },
             { "questionNumber": 40, "question": "Los gigantescos edificios llenos de servidores que componen la nube se llaman:", "answerOptions": [ { "text": "Plataformas PaaS.", "rationale": "PaaS es un tipo de servicio que corre en esos edificios, no el edificio en sí.", "isCorrect": false }, { "text": "Centros de datos (Data Centers).", "rationale": "Correcto. Es el término técnico para la infraestructura física que soporta la nube.", "isCorrect": true }, { "text": "Nodos de Fog Computing.", "rationale": "Los nodos de Fog son mucho más pequeños y distribuidos, como una antena, no grandes edificios centralizados.", "isCorrect": false } ] },
             { "questionNumber": 41, "question": "Un checklist digital con fotos en la recepción activa sirve para...", "answerOptions": [ { "text": "Aumentar la transparencia con el cliente y evitar malentendidos.", "rationale": "Correcto. El cliente ve y aprueba el estado de su vehículo a la entrada, lo que genera confianza y evita reclamaciones.", "isCorrect": true }, { "text": "Sustituir el diagnóstico del técnico.", "rationale": "El checklist es una inspección visual inicial, no un diagnóstico técnico de la avería.", "isCorrect": false }, { "text": "Enviar los datos directamente al fabricante.", "rationale": "Esta información es para la gestión interna entre el taller y el cliente, no para el fabricante.", "isCorrect": false } ] },
-            { "questionNumber": 42, "question": "¿Qué es la latencia?", "answerOptions": [ { "text": "La cantidad de datos que se pueden enviar por segundo.", "rationale": "Eso es el ancho de banda, no la latencia.", "isCorrect": false }, { "text": "El tiempo de retraso en la comunicación entre dos puntos de una red.", "rationale": "Correcto. Es el tiempo que tarda un paquete de datos en ir y volver, y es el factor crítico para las decisiones en tiempo real.", "isCorrect": true }, { "text": "Un fallo de seguridad en la nube.", "rationale": "La latencia es una característica física de las redes, no un fallo de seguridad.", "isCorrect": false } ] },
+            { "questionNumber": 42, "question": "¿Qué es la latencia?", "answerOptions": [ { "text": "La cantidad de datos que se pueden enviar por segundo.", "rationale": "Eso es el ancho de banda, no la latencia.", "isCorrect": false }, { "text": "El tiempo de retraso en la comunicación entre dos puntos de una rede.", "rationale": "Correcto. Es el tiempo que tarda un paquete de datos en ir y volver, y es el factor crítico para las decisiones en tiempo real.", "isCorrect": true }, { "text": "Un fallo de seguridad en la nube.", "rationale": "La latencia es una característica física de las redes, no un fallo de seguridad.", "isCorrect": false } ] },
             { "questionNumber": 43, "question": "¿Qué modelo de servicio en la nube te da más control sobre el sistema?", "answerOptions": [ { "text": "SaaS", "rationale": "SaaS es el que menos control te da, ya que solo puedes usar el software tal y como te lo ofrecen.", "isCorrect": false }, { "text": "PaaS", "rationale": "PaaS te da control sobre tu aplicación, pero no sobre el sistema operativo o la infraestructura.", "isCorrect": false }, { "text": "IaaS", "rationale": "Correcto. IaaS te da el control más completo, ya que eres tú quien instala y gestiona el sistema operativo y todas las capas superiores.", "isCorrect": true } ] },
             { "questionNumber": 44, "question": "El sistema que avisa al cliente de que su próxima revisión es en 1.000 km forma parte del:", "answerOptions": [ { "text": "Edge Computing del coche.", "rationale": "El coche puede mostrar el aviso en el cuadro, pero la gestión proactiva con el cliente la hace el taller.", "isCorrect": false }, { "text": "Módulo CRM del DMS en la nube.", "rationale": "Correcto. El DMS utiliza los datos del historial para programar y enviar estas comunicaciones de fidelización.", "isCorrect": true }, { "text": "Fog Computing de la carretera.", "rationale": "El Fog no tiene relación con el historial de mantenimiento de un vehículo.", "isCorrect": false } ] },
             { "questionNumber": 45, "question": "Si el sistema de frenado de emergencia (AEB) dependiera de la nube, ¿qué pasaría al entrar en un túnel sin cobertura?", "answerOptions": [ { "text": "Nada, seguiría funcionando gracias al Fog.", "rationale": "El Fog también depende de la infraestructura externa (antenas), por lo que en un túnel largo podría no estar disponible.", "isCorrect": false }, { "text": "El sistema dejaría de funcionar, creando un grave riesgo de seguridad.", "rationale": "Correcto. Esta es la razón fundamental por la que los sistemas de seguridad críticos deben funcionar en el Edge, de forma autónoma.", "isCorrect": true }, { "text": "El coche se conectaría a la nube por satélite.", "rationale": "La conexión por satélite también tiene una latencia muy alta, por lo que no es una solución para decisiones instantáneas.", "isCorrect": false } ] },
@@ -220,5 +253,9 @@
         showQuestion(currentQuestionIndex);
     </script>
 
-</body>
+    <footer>
+        <img src="https://i.postimg.cc/43XhhsCg/ASD.png" alt="Logo Atreyu Servicios Digitales">
+        <span>&copy; Atreyu Servicios Digitales</span>
+    </footer>
+    </body>
 </html>
