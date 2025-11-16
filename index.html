@@ -10,13 +10,32 @@
             background-color: #f0f2f5; 
             color: #333; 
             margin: 0; 
-            padding: 20px; 
+            /* AÑADIMOS PADDING FIJO
+              para dejar espacio a la barra superior (top-bar) y al footer 
+            */
+            padding: 70px 20px 70px 20px; 
             display: flex; 
-            flex-direction: column; /* Cambiado para permitir el footer */
-            justify-content: center; 
+            flex-direction: column; 
             align-items: center; 
-            min-height: 100vh; 
         }
+
+        /* --- BARRA SUPERIOR FIJA --- */
+        #top-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #0d47a1; /* Azul corporativo */
+            color: white;
+            text-align: center;
+            font-size: 1.1em;
+            font-weight: bold;
+            padding: 15px 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        /* --- FIN BARRA SUPERIOR --- */
+
         #quiz-container, #review-container { 
             width: 100%; 
             max-width: 700px; 
@@ -49,27 +68,37 @@
         #results-container.pass { background-color: #d1e7dd; color: #0f5132; }
         #results-container.fail { background-color: #f8d7da; color: #842029; }
         
-        /* --- CSS NUEVO PARA EL FOOTER --- */
+        /* --- CSS FOOTER MODIFICADO (AHORA FIJO) --- */
         footer {
             width: 100%;
-            margin-top: 40px; /* Espacio entre el test y el footer */
-            padding-bottom: 20px;
+            padding: 10px 0; /* Ajustado el padding */
             display: flex;
             justify-content: center;
             align-items: center;
             font-size: 0.9em;
             color: #777;
+            
+            /* --- Propiedades para fijar el footer --- */
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            background-color: #ffffff; /* Fondo blanco para que no sea transparente */
+            border-top: 1px solid #dee2e6; /* Línea separadora */
+            z-index: 1000;
         }
         footer img {
-            width: 25px; /* Tamaño del logo */
-            margin-right: 10px; /* Espacio entre logo y texto */
+            width: 25px; 
+            margin-right: 10px; 
         }
-        /* --- FIN DEL CSS NUEVO --- */
+        /* --- FIN DEL CSS FOOTER --- */
 
     </style>
 </head>
 <body>
 
+    <div id="top-bar">
+        Unidad 3 de Digitalización
+    </div>
     <div id="quiz-container">
         <h1>Test: La Nube y el Borde</h1>
         <div id="question-card"></div>
@@ -101,7 +130,7 @@
             { "questionNumber": 8, "question": "La alerta de 'hielo en la calzada' que un coche envía a los vehículos cercanos es el mejor ejemplo de:", "answerOptions": [ { "text": "Edge Computing", "rationale": "El Edge (el coche) detecta el hielo, pero necesita una capa superior para comunicarlo rápidamente a otros coches.", "isCorrect": false }, { "text": "Fog Computing", "rationale": "Correcto. La comunicación V2X (Vehículo con Todo) para alertas locales e instantáneas es la aplicación clave del Fog.", "isCorrect": true }, { "text": "Cloud Computing", "rationale": "Enviar la alerta a la nube y que esta la distribuya sería demasiado lento para los coches que ya están cerca de la placa de hielo.", "isCorrect": false } ] },
             { "questionNumber": 9, "question": "Usando la analogía del cuerpo humano, ¿qué sería la Nube?", "answerOptions": [ { "text": "Los actos reflejos (médula espinal).", "rationale": "Los reflejos son respuestas instantáneas y locales, lo que equivale al Edge Computing.", "isCorrect": false }, { "text": "El cerebro, responsable del análisis complejo y la memoria a largo plazo.", "rationale": "Correcto. La nube se encarga del procesamiento pesado, el análisis de Big Data y el almacenamiento masivo, como el cerebro.", "isCorrect": true }, { "text": "Los cinco sentidos (vista, oído...).", "rationale": "Los sentidos serían los sensores del vehículo que capturan los datos.", "isCorrect": false } ] },
             { "questionNumber": 10, "question": "¿Cuál es una de las funciones del Edge Computing además de tomar decisiones rápidas?", "answerOptions": [ { "text": "Almacenar todo el historial del vehículo.", "rationale": "El almacenamiento a largo plazo es una función típica de la nube, no del Edge.", "isCorrect": false }, { "text": "Actuar como un filtro inteligente para no saturar la nube.", "rationale": "Correcto. El Edge procesa la información y solo envía a la nube los datos relevantes o las alertas, no gigabytes de datos en bruto.", "isCorrect": true }, { "text": "Gestionar la facturación del taller.", "rationale": "La facturación se gestiona en el DMS, una aplicación SaaS que corre en la nube.", "isCorrect": false } ] },
-            { "questionNumber": 11, "question": "Alquilar servidores virtuales en Amazon Web Services (AWS) para construir tu propia plataforma de servicios es un ejemplo de:", "answerOptions": [ { "text": "IaaS (Infraestructura como Servicio)", "rationale": "Correcto. Estás alquilando la 'infraestructura' básica (servidores, almacenamiento) sobre la que tú construirás todo lo demás.", "isCorrect": true }, { "text": "PaaS (Plataforma como Servicio)", "rationale": "En PaaS, AWS te daría también el sistema operativo y las bases de datos listas para usar, un nivel más de servicio.", "isCorrect": false }, { "text": "SaaS (Software como Servicio)", "rationale": "En SaaS, AWS te ofrecería una aplicación final, no los componentes básicos para construirla.", "isCorrect": false } ] },
+            { "questionNumber": 11, "question": "Alquilar servidores virtuais en Amazon Web Services (AWS) para construir tu propia plataforma de servicios es un ejemplo de:", "answerOptions": [ { "text": "IaaS (Infraestructura como Servicio)", "rationale": "Correcto. Estás alquilando la 'infraestructura' básica (servidores, almacenamiento) sobre la que tú construirás todo lo demás.", "isCorrect": true }, { "text": "PaaS (Plataforma como Servicio)", "rationale": "En PaaS, AWS te daría también el sistema operativo y las bases de datos listas para usar, un nivel más de servicio.", "isCorrect": false }, { "text": "SaaS (Software como Servicio)", "rationale": "En SaaS, AWS te ofrecería una aplicación final, no los componentes básicos para construirla.", "isCorrect": false } ] },
             { "questionNumber": 12, "question": "¿Qué ventaja clave ofrece un DMS en la nube frente a un software instalado en un PC?", "answerOptions": [ { "text": "No necesita conexión a internet para funcionar.", "rationale": "Al contrario, un sistema en la nube requiere una conexión a internet constante para poder acceder a los servidores.", "isCorrect": false }, { "text": "Es accesible desde cualquier dispositivo (tablet, móvil) y lugar.", "rationale": "Correcto. Al estar en la nube, puedes acceder a la información desde el foso del taller, la recepción o incluso desde casa.", "isCorrect": true }, { "text": "Es una compra única y no requiere actualizaciones.", "rationale": "Los sistemas en la nube suelen ser un modelo de suscripción y se actualizan automáticamente, lo que es una ventaja, no una desventaja.", "isCorrect": false } ] },
             { "questionNumber": 13, "question": "En el ecosistema conectado, ¿dónde se realiza el análisis de Big Data para predecir fallos a gran escala?", "answerOptions": [ { "text": "En cada coche individualmente (Edge).", "rationale": "Un coche no tiene la capacidad ni la información de millones de otros coches para hacer un análisis de Big Data.", "isCorrect": false }, { "text": "En las antenas 5G (Fog).", "rationale": "El Fog tiene capacidad de procesamiento local, pero el análisis masivo de datos históricos se realiza en una ubicación central.", "isCorrect": false }, { "text": "En la plataforma central del fabricante (Cloud).", "rationale": "Correcto. La nube es la única con la capacidad de cómputo y el acceso a los datos de toda la flota para encontrar patrones.", "isCorrect": true } ] },
             { "questionNumber": 14, "question": "Una Orden de Reparación (OR) digital en una tablet que adjunta fotos y es firmada por el cliente es una función típica de:", "answerOptions": [ { "text": "El sistema ADAS del vehículo.", "rationale": "Los sistemas ADAS son de asistencia a la conducción y están en el coche, no en el taller.", "isCorrect": false }, { "text": "Un DMS en la nube.", "rationale": "Correcto. La digitalización de la recepción activa es una de las funcionalidades clave de un DMS moderno.", "isCorrect": true }, { "text": "El Fog Computing.", "rationale": "El Fog Computing se usa para la comunicación V2X, no para la gestión interna del taller.", "isCorrect": false } ] },
@@ -257,5 +286,6 @@
         <img src="https://i.postimg.cc/43XhhsCg/ASD.png" alt="Logo Atreyu Servicios Digitales">
         <span>&copy; Atreyu Servicios Digitales</span>
     </footer>
-    </body>
+
+</body>
 </html>
